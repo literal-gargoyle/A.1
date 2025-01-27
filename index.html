@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>A.1!</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <script>
+        function factors() {
+            let num = parseInt(prompt("Enter a number:"));
+            let result = [];
+            for (let i = 1; i <= num; i++) {
+                if (num % i === 0) {
+                    result.push(i);
+                }
+            }
+            alert("Factors of " + num + " are: " + result.join(", "));
+        }
+
+        function primeFactors() {
+            let num = parseInt(prompt("Enter a number:"));
+            let result = [];
+            let divisor = 2;
+            while (num >= 2) {
+                if (num % divisor === 0) {
+                    result.push(divisor);
+                    num /= divisor;
+                } else {
+                    divisor++;
+                }
+            }
+            alert("Prime factors are: " + result.join(", "));
+        }
+
+        function gcd() {
+            let a = parseInt(prompt("Enter the first number:"));
+            let b = parseInt(prompt("Enter the second number:"));
+            while (b !== 0) {
+                let t = b;
+                b = a % b;
+                a = t;
+            }
+            alert("GCD is: " + a);
+        }
+
+        function lcm() {
+            let a = parseInt(prompt("Enter the first number:"));
+            let b = parseInt(prompt("Enter the second number:"));
+            let gcd = (a, b) => {
+                while (b !== 0) {
+                    let t = b;
+                    b = a % b;
+                    a = t;
+                }
+                return a;
+            }
+            alert("LCM is: " + (a * b) / gcd(a, b));
+        }
+
+        function quadraticSolver() {
+            let a = parseFloat(prompt("Enter the coefficient a:"));
+            let b = parseFloat(prompt("Enter the coefficient b:"));
+            let c = parseFloat(prompt("Enter the coefficient c:"));
+            let discriminant = b * b - 4 * a * c;
+            if (discriminant > 0) {
+                let root1 = (-b + Math.sqrt(discriminant)) / (2 * a);
+                let root2 = (-b - Math.sqrt(discriminant)) / (2 * a);
+                alert("Roots are: " + root1 + " and " + root2);
+            } else if (discriminant === 0) {
+                let root = -b / (2 * a);
+                alert("Root is: " + root);
+            } else {
+                alert("No real roots.");
+            }
+        }
+
+        function linearSolver() {
+            let a = parseFloat(prompt("Enter the coefficient a:"));
+            let b = parseFloat(prompt("Enter the coefficient b:"));
+            if (a === 0) {
+                if (b === 0) {
+                    alert("Infinite solutions.");
+                } else {
+                    alert("No solution.");
+                }
+            } else {
+                let root = -b / a;
+                alert("Root is: " + root);
+            }
+        }
+
+        function polynomialSimplifier() {
+            let expr = prompt("Enter a polynomial expression (e.g., '2x^2 + 3x - 5 + x^2 - 3x + 2'):");
+            let simplified = math.simplify(expr).toString();
+            alert("Simplified polynomial is: " + simplified);
+        }
+
+        function polynomialMultiplication() {
+            let expr1 = prompt("Enter the first polynomial (e.g., '2x + 3'):");
+            let expr2 = prompt("Enter the second polynomial (e.g., 'x - 4'):");
+            let product = math.multiply(math.parse(expr1), math.parse(expr2)).toString();
+            alert("Product of the polynomials is: " + product);
+        }
+
+        function polynomialDivision() {
+            alert("Polynomial division is not implemented yet.");
+        }
+
+        function matrixMultiplication() {
+            alert("Matrix multiplication is not implemented yet.");
+        }
+
+        function matrixInversion() {
+            alert("Matrix inversion is not implemented yet.");
+        }
+
+        function determinant() {
+            alert("Determinant calculation is not implemented yet.");
+        }
+
+        function exponentiation() {
+            let base = parseFloat(prompt("Enter the base:"));
+            let exponent = parseFloat(prompt("Enter the exponent:"));
+            alert("Result is: " + Math.pow(base, exponent));
+        }
+
+        function logarithm() {
+            let value = parseFloat(prompt("Enter the value:"));
+            alert("Logarithm is: " + Math.log(value));
+        }
+
+        function systemEquations() {
+            let eqns = prompt("Enter system of equations (e.g., 'x + y = 3, x - y = 1'):");
+            let variables = prompt("Enter variables (e.g., 'x, y'):");
+            let result = math.lsolve(math.sparse(eqns), math.matrix(variables));
+            alert("Solution is: " + result);
+        }
+
+        function factorial() {
+            let num = parseInt(prompt("Enter a number:"));
+            let result = 1;
+            for (let i = num; i > 0; i--) {
+                result *= i;
+            }
+            alert("Factorial is: " + result);
+        }
+
+        function binomialTheorem() {
+            alert("Binomial theorem expansion is not implemented yet.");
+        }
+
+        function combinations() {
+            let n = parseInt(prompt("Enter n:"));
+            let r = parseInt(prompt("Enter r:"));
+            let result = math.combinations(n, r);
+            alert("Number of combinations is: " + result);
+        }
+
+        function permutations() {
+            let n = parseInt(prompt("Enter n:"));
+            let r = parseInt(prompt("Enter r:"));
+            let result = math.permutations(n, r);
+            alert("Number of permutations is: " + result);
+        }
+
+        function absoluteValue() {
+            let num = parseFloat(prompt("Enter a number:"));
+            alert("Absolute value is: " + Math.abs(num));
+        }
+    </script>
+</head>
+<body>
+    <h1>Welcome to A.1!</h1>
+    <p>Your one-stop shop for algebra tools!</p>
+
+    <h2>Algebra Tools</h2>
+    <ul>
+        <li><a href="#" onclick="factors()">Factors ✅</a></li>
+        <li><a href="#" onclick="primeFactors()">Prime Factors ✅</a></li>
+        <li><a href="#" onclick="gcd()">Greatest Common Divisor (GCD) ✅</a></li>
+        <li><a href="#" onclick="lcm()">Least Common Multiple (LCM) ✅</a></li>
+        <li><a href="#" onclick="quadraticSolver()">Quadratic Equation Solver ✅</a></li>
+        <li><a href="#" onclick="linearSolver()">Linear Equation Solver ✅</a></li>
+        <li><a href="#" onclick="polynomialSimplifier()">Polynomial Simplifier ✅</a></li>
+        <li><a href="#" onclick="polynomialMultiplication()">Polynomial Multiplication ✅</a></li>
+        <li><a href="#" onclick="polynomialDivision()">Polynomial Division ❌</a></li>
+        <li><a href="#" onclick="matrixMultiplication()">Matrix Multiplication ❌</a></li>
+        <li><a href="#" onclick="matrixInversion()">Matrix Inversion ❌</a></li>
+        <li><a href="#" onclick="determinant()">Determinant of a Matrix ❌</a></li>
+        <li><a href="#" onclick="exponentiation()">Exponentiation ✅</a></li>
+        <li><a href="#" onclick="logarithm()">Logarithm ✅</a></li>
+        <li><a href="#" onclick="systemEquations()">System of Equations Solver ✅</a></li>
+        <li><a href="#" onclick="factorial()">Factorial Calculator ✅</a></li>
+        <li><a href="#" onclick="binomialTheorem()">Binomial Theorem ✅</a></li>
+        <li><a href="#" onclick="combinations()">Combinations Calculator ✅</a></li>
+        <li><a href="#" onclick="permutations()">Permutations Calculator ✅</a></li>
+        <li><a href="#" onclick="absoluteValue()">Absolute Value ✅</a></li>
+    </ul>
+</body>
+</html>
